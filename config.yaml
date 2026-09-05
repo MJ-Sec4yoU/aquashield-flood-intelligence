@@ -1,0 +1,31 @@
+# ============================================
+# CONFIG FILE - Sab settings yahan se change hoti hain
+# ============================================
+
+city:
+  name: "Vasai-Virar-Nalasopara"
+  # Bounding box = area ka rectangle (south, west, north, east)
+  # Vasai, Nalasopara, Virar, Naigaon ko cover karta hai
+  bbox:
+    south: 19.30
+    west: 72.76
+    north: 19.50
+    east: 72.90
+  center_lat: 19.40
+  center_lon: 72.83
+
+rainfall:
+  start_date: "2019-01-01"
+  end_date: "2023-12-31"
+
+elevation:
+  grid_resolution: 0.01   # ~1km grid cells (bada number = kam points, fast)
+
+flood_risk_thresholds:
+  low: 20      # mm rainfall/day se kam = low risk
+  medium: 60   # 20-60mm = medium risk
+  high: 60     # 60mm+ = high risk
+
+paths:
+  raw_dir: "data/raw"
+  processed_dir: "data/processed"

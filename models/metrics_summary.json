@@ -1,0 +1,56 @@
+{
+  "temporal_split": {
+    "LogisticRegression": {
+      "macro_f1": 0.934245088765842,
+      "high_recall": 1.0
+    },
+    "RandomForest": {
+      "macro_f1": 0.9956401685609576,
+      "high_recall": 1.0
+    },
+    "XGBoost": {
+      "macro_f1": 0.9954839295527739,
+      "high_recall": 1.0
+    }
+  },
+  "spatial_split": {
+    "LogisticRegression": {
+      "macro_f1": 0.7051369638663217,
+      "high_recall": 0.9516129032258065
+    },
+    "RandomForest": {
+      "macro_f1": 0.9176777788428842,
+      "high_recall": 1.0
+    },
+    "XGBoost": {
+      "macro_f1": 0.8917300097956259,
+      "high_recall": 0.9838709677419355
+    }
+  },
+  "regression_temporal": {
+    "RandomForestRegressor": {
+      "rmse": 0.15894600624765984,
+      "mae": 0.02143097412485254,
+      "r2": 0.9997826690590701
+    },
+    "XGBoostRegressor": {
+      "rmse": 0.26561313402232795,
+      "mae": 0.049727706930953346,
+      "r2": 0.9993930940259546
+    }
+  },
+  "regression_spatial": {
+    "RandomForestRegressor": {
+      "rmse": 3.3009064232637075,
+      "mae": 2.8138257880005084,
+      "r2": 0.9071205842551002
+    },
+    "XGBoostRegressor": {
+      "rmse": 4.6408799414318205,
+      "mae": 4.240786295748401,
+      "r2": 0.8164080155394335
+    }
+  },
+  "best_classifier": "RandomForest",
+  "best_regressor": "RandomForestRegressor"
+}

@@ -1,0 +1,13 @@
+﻿[server]
+maxUploadSize = 50
+headless = true
+
+[theme]
+base = "dark"
+primaryColor = "#1a6eb5"
+backgroundColor = "#0e1117"
+secondaryBackgroundColor = "#1c2333"
+textColor = "#fafafa"
+
+[runner]
+magicEnabled = true
