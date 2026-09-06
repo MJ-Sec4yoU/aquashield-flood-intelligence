@@ -253,12 +253,11 @@ with st.sidebar:
         label_visibility="collapsed"
     )
     st.markdown("---")
-    st.markdown("**Team AquaShield**")
-    st.caption("Harshita • Mufis • Vidhan • Dhana")
+    st.caption("AquaShield · Urban Flood Intelligence")
 
 if not data_ok:
-    st.error(f"❌ Data load karne mein error: {err_msg}")
-    st.info("Check karo ki `data/processed/` folder mein dono CSV files hain.")
+    st.error(f"❌ Error loading data: {err_msg}")
+    st.info("Please verify that both dataset CSV files exist in `data/processed/`.")
     st.stop()
 
 # ════════════════════════════════════════════════════════════════
@@ -341,7 +340,7 @@ if page == "🏠 Home":
             fig.update_layout(margin=dict(l=0, r=0, t=30, b=0), legend_title="Risk level")
             st.plotly_chart(fig, use_container_width=True)
         else:
-            st.info("Date/risk column nahi mila CSV mein.")
+            st.info("Date or risk column not found in dataset.")
 
     with col_b:
         st.subheader("⚠️ About VVN")
@@ -355,11 +354,11 @@ urban regions near Mumbai.
 - Low elevation + blocked drainage + rapid construction
         """)
         st.subheader("📋 Project phases")
-        st.success("✅ Phase 0-1-2: Data collection & preprocessing")
-        st.success("✅ Phase 3: ML model training (Mufis)")
-        st.warning("🔄 Phase 4: Route engine (Vidhan)")
-        st.info("🚧 Phase 5: Dashboard (Dhana — this!)")
-        st.info("⏳ Phase 6: IoT sensor integration")
+        st.success("✅ Phase 1: Data collection & preprocessing")
+        st.success("✅ Phase 2: ML model training & evaluation")
+        st.success("✅ Phase 3: Safe route optimization engine")
+        st.success("✅ Phase 4: Interactive intelligence dashboard")
+        st.info("⏳ Phase 5: Real-time IoT sensor network")
 
     st.markdown("---")
     st.subheader("🗂️ Raw data preview")
@@ -464,7 +463,7 @@ elif page == "🗺️ Flood Risk Map":
 
         st_folium(m, width=None, height=520, returned_objects=[])
     else:
-        st.warning("CSV mein latitude/longitude columns nahi mile. Column names check karo.")
+        st.warning("Latitude/longitude columns not found in dataset. Please verify column names.")
         st.write("Available columns:", list(flood_df.columns))
 
 
@@ -516,7 +515,7 @@ elif page == "📊 Analytics":
             st.plotly_chart(fig, use_container_width=True)
             st.caption("Blue bars = monsoon months (Jun–Sep). July is consistently the highest-risk month.")
         else:
-            st.info("Rainfall ya month column nahi mila CSV mein.")
+            st.info("Rainfall or month column not found in dataset.")
 
     # Tab 2: Risk distribution
     with tab2:
@@ -544,7 +543,7 @@ elif page == "📊 Analytics":
                     fig2.update_layout(showlegend=False, margin=dict(l=0,r=0,t=40,b=0))
                     st.plotly_chart(fig2, use_container_width=True)
         else:
-            st.info("Risk label column nahi mila.")
+            st.info("Risk label column not found in dataset.")
 
     # Tab 3: Year trend
     with tab3:
@@ -570,7 +569,7 @@ elif page == "📊 Analytics":
             st.plotly_chart(fig, use_container_width=True)
             st.caption("📍 Red dashed lines = real historical flood events. 2021 spike validates model accuracy.")
         else:
-            st.info("Year ya risk column nahi mila.")
+            st.info("Year or risk column not found in dataset.")
 
     # Tab 4: Area hotspots
     with tab4:
@@ -619,7 +618,7 @@ elif page == "📊 Analytics":
             st.dataframe(ward_tbl, use_container_width=True, hide_index=True)
             st.caption("📈 Aggregate flood vulnerability by municipal ward. Data for civic planning & resource allocation.")
         else:
-            st.info("Score ya lat/lon columns nahi mile.")
+            st.info("Score or latitude/longitude columns not found in dataset.")
 
 
 # ════════════════════════════════════════════════════════════════
@@ -907,7 +906,7 @@ elif page == "🛣️ Road Risk Map":
                 continue
         st_folium(m, width=None, height=500, returned_objects=[])
     else:
-        st.warning("Latitude/longitude columns roads dataset mein nahi mile.")
+        st.warning("Latitude/longitude columns not found in road network dataset.")
         st.write("Available columns:", list(roads_df.columns))
 
 
